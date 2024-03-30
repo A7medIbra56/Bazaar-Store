@@ -1,0 +1,11 @@
+.imgSlider {
+  width: 70% !important;
+  width: 50% !important;
+}
+.SwiperSlide {
+  position: relative;
+}
+
+.SwiperSlide:hover .icon {
+  opacity: 0.5;
+}
