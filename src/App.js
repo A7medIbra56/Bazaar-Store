@@ -4,9 +4,10 @@ import Header2 from "./components/header/Header2";
 import Header3 from "./components/header/Header3";
 import Hero from "./components/Hero/Hero";
 import Hero1 from "./components/Hero/Hero1";
+import Main from "./components/main/main";
 import { Box, CssBaseline } from "@mui/material";
 
-function App(){
+function App() {
   return (
     <>
       <CssBaseline />
@@ -14,8 +15,9 @@ function App(){
       <Header2 />
       <Header3 />
       <Box bgcolor="#F6F6F6">
-      <Hero />
-        <Hero1/>
+        <Hero />
+        <Hero1 />
+        <Main/>
       </Box>
     </>
   );
