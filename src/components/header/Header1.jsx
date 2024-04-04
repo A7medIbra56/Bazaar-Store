@@ -1,97 +1,40 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Stack,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  MenuItem,
-  Menu,
-} from "@mui/material";
-import { FacebookOutlined, Twitter } from "@mui/icons-material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-const options = ["AR", "EN"];
+import React from "react";
+import { Typography } from "antd";
+import { FacebookOutlined, TwitterOutlined } from "@ant-design/icons";
 
 const Header1 = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
-  const open = Boolean(anchorEl);
-
-  const handleClickListItem = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
-    <Stack
-      bgcolor="#2B3445"
-      px={"10px"}
-      direction={"row"}
-      alignItems={"center"}
+    <div
+      style={{
+        backgroundColor: "#2B3445",
+        color: "white",
+        padding: "10px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
     >
-      <Typography
-        paddingX={"10px"}
-        paddingY={"2px"}
-        marginRight={"5px"}
-        fontSize={"12px"}
-        color={"white"}
-        borderRadius={"10px"}
-        bgcolor={"#D23F57"}
-      >
-        HOT
-      </Typography>
-      <Typography fontSize={"12px"} color={"white"}>
-        Free Express Shipping
-      </Typography>
-
-      <Box flexGrow={1} />
-
-      <List component="nav" aria-label="Device settings">
-        <ListItem
-          id="lock-button"
-          aria-haspopup="listbox"
-          aria-controls="lock-menu"
-          aria-label="when device is locked"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClickListItem}
-          sx={{ cursor: "pointer", padding: "0" }}
+      <div>
+        <Typography.Text
+          style={{
+            padding: "2px 10px",
+            marginRight: "5px",
+            fontSize: "12px",
+            borderRadius: "10px",
+            backgroundColor: "#D23F57",
+          }}
         >
-          <ListItemText secondary={options[selectedIndex]} />
-          <ArrowDropDownIcon />
-        </ListItem>
-      </List>
-      <Menu
-        id="lock-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "lock-button",
-          role: "listbox",
-        }}
-      >
-        {options.map((option, index) => (
-          <MenuItem
-            key={option}
-            selected={index === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, index)}
-          >
-            {option}
-          </MenuItem>
-        ))}
-      </Menu>
-      <FacebookOutlined sx={{ marginRight: "10px", fontSize: "18px" }} />
-      <Twitter sx={{ marginRight: "10px", fontSize: "18px" }} />
-    </Stack>
+          HOT
+        </Typography.Text>
+        <Typography.Text style={{ fontSize: "12px", marginRight: "10px" }}>
+          Free Express Shipping
+        </Typography.Text>
+      </div>
+      <div>
+        <FacebookOutlined style={{ marginRight: "10px", fontSize: "18px" }} />
+        <TwitterOutlined style={{ marginRight: "10px", fontSize: "18px" }} />
+      </div>
+    </div>
   );
 };
 
